@@ -1,5 +1,6 @@
 package compiler.IR;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
@@ -38,9 +39,11 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 
 	public NPEntries visitEntries(EntriesContext ctx) {
 		LinkedList<NPEntry> list = new LinkedList<NPEntry>();
+		
 		for (EntryContext entryCtx : ctx.entry()) {
 			list.add(visitEntry(entryCtx));
 		}
+		
 		return new NPEntries(list);
 	}
 
@@ -69,50 +72,50 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 		return new NPType(ctx.getText());
 	}
 
-	@Override
-	public IR visitIpv4content(Ipv4contentContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4content(ctx.);
+	public NPIPv4Content visitIpv4content(Ipv4contentContext ctx) {
+		LinkedList<NPDump> list = new LinkedList<NPDump>();
+		
+		for (DumplineContext dumpCtx : ctx.dumpline()) {
+			list.add(visitDumpline(dumpCtx));
+		}
+		
+		return new NPIPv4Content(visitIpv4fields(ctx.fields), ctx.from.getText(), ctx.to.getText(), visitProtinfo(ctx.prot), list);
+	}
+
+	public NPIPv4Fields visitIpv4fields(Ipv4fieldsContext ctx) {
+		return new NPIPv4Fields(ctx.tos.getText(), ctx.ttl.getText(), ctx.id.getText(), ctx.offset.getText(), visitIpv4flags(ctx.flags), visitIpv4proto(ctx.proto), Integer.parseInt(ctx.length().NUMBER().getText()));
+	}
+
+	public NPIPv4Proto visitProtinfo(ProtinfoContext ctx) {
+		return new NPIPv4Proto(ctx.protname().getText(), Integer.parseInt(ctx.length().NUMBER().getText()));
+	}
+
+	public NPDump visitDumpline(DumplineContext ctx) {
+		return new NPDump(ctx.getText());
+	}
+
+	public IR visitIpv4tos(Ipv4tosContext ctx) {
+		return null;
 	}
 
 	public IR visitIpv4ttl(Ipv4ttlContext ctx) {
-		return super.visitIpv4ttl(ctx);
+		return null;
 	}
 
-	@Override
-	public IR visitIpv4flags(Ipv4flagsContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4flags(ctx);
-	}
-
-	@Override
-	public IR visitDumpline(DumplineContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitDumpline(ctx);
-	}
-
-	@Override
 	public IR visitLength(LengthContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitLength(ctx);
+		return null;
 	}
 
-	@Override
 	public IR visitIpv4id(Ipv4idContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4id(ctx);
+		return null;
 	}
 
-	@Override
 	public IR visitIpv4offset(Ipv4offsetContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4offset(ctx);
+		return null;
 	}
-
-	@Override
-	public IR visitProtinfo(ProtinfoContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitProtinfo(ctx);
+	
+	public NPIPv4Flags visitIpv4flags(Ipv4flagsContext ctx) {
+		return new NPIPv4Flags(ctx.flagvalues().getText());
 	}
 
 	@Override
@@ -134,21 +137,9 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	@Override
-	public IR visitIpv4tos(Ipv4tosContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4tos(ctx);
-	}
-
-	@Override
 	public IR visitProtname(ProtnameContext ctx) {
 		// TODO Auto-generated method stub
 		return super.visitProtname(ctx);
-	}
-
-	@Override
-	public IR visitIpv4fields(Ipv4fieldsContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4fields(ctx);
 	}
 
 	@Override

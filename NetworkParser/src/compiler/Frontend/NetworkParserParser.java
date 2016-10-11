@@ -1,22 +1,14 @@
 package compiler.Frontend;
 
 // Generated from C:\Users\s140330\Downloads\NetworkParser.g4 by ANTLR 4.1
-import java.util.List;
-
-import org.antlr.v4.runtime.NoViableAltException;
-import org.antlr.v4.runtime.Parser;
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.RecognitionException;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.atn.ATN;
-import org.antlr.v4.runtime.atn.ATNSimulator;
-import org.antlr.v4.runtime.atn.ParserATNSimulator;
-import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.tree.ParseTreeListener;
-import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-import org.antlr.v4.runtime.tree.TerminalNode;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class NetworkParserParser extends Parser {
@@ -638,6 +630,12 @@ public class NetworkParserParser extends Parser {
 	}
 
 	public static class Ipv4fieldsContext extends ParserRuleContext {
+		public Ipv4tosContext tos;
+		public Ipv4ttlContext ttl;
+		public Ipv4idContext id;
+		public Ipv4offsetContext offset;
+		public Ipv4flagsContext flags;
+		public Ipv4protoContext proto;
 		public LengthContext length() {
 			return getRuleContext(LengthContext.class,0);
 		}
@@ -685,17 +683,17 @@ public class NetworkParserParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(104); match(13);
-			setState(105); ipv4tos();
+			setState(105); ((Ipv4fieldsContext)_localctx).tos = ipv4tos();
 			setState(106); match(14);
-			setState(107); ipv4ttl();
+			setState(107); ((Ipv4fieldsContext)_localctx).ttl = ipv4ttl();
 			setState(108); match(14);
-			setState(109); ipv4id();
+			setState(109); ((Ipv4fieldsContext)_localctx).id = ipv4id();
 			setState(110); match(14);
-			setState(111); ipv4offset();
+			setState(111); ((Ipv4fieldsContext)_localctx).offset = ipv4offset();
 			setState(112); match(14);
-			setState(113); ipv4flags();
+			setState(113); ((Ipv4fieldsContext)_localctx).flags = ipv4flags();
 			setState(114); match(14);
-			setState(115); ipv4proto();
+			setState(115); ((Ipv4fieldsContext)_localctx).proto = ipv4proto();
 			setState(116); match(14);
 			setState(117); length();
 			setState(118); match(27);
