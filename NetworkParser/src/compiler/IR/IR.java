@@ -3,8 +3,6 @@ package compiler.IR;
 public class IR {
 
 	public NPEntries entries;
-	public static NPEntryTable entryTable = new NPEntryTable();
-	
 	
 	public IR() {
 	}

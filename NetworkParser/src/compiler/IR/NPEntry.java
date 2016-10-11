@@ -1,6 +1,6 @@
 package compiler.IR;
 
-public class NPEntry {
+public class NPEntry extends IR{
 	
 	private NPDate date;
 	private NPTime time;

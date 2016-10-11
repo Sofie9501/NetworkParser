@@ -45,19 +45,37 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	public NPEntry visitEntry(EntryContext ctx) {
-		return new NPEntry(visitDate(ctx.date())/*,visitTime(ctx.time()), visitPacket(ctx.packet())*/);
+		return new NPEntry(visitDate(ctx.date()),visitTime(ctx.time()), visitPacket(ctx.packet()));
 	}
 
 	
 	public NPDate visitDate(DateContext ctx) {
-		return new NPDate(Integer.parseInt(ctx.NUMBER().get(0).getText()), Integer.parseInt(ctx.NUMBER().get(1).getText()), Integer.parseInt(ctx.NUMBER().get(2).getText()));
+		return new NPDate(Integer.parseInt(ctx.day.getText()), Integer.parseInt(ctx.month.getText()), Integer.parseInt(ctx.year.getText()));
 	}
 	
-	
-	
+	public NPTime visitTime(TimeContext ctx) {
+		return new NPTime(Integer.parseInt(ctx.hour.getText()), Integer.parseInt(ctx.minute.getText()), Integer.parseInt(ctx.seconds.getText()), Integer.parseInt(ctx.miliseconds.getText()));
+	}
+
+	public NPPacket visitPacket(PacketContext ctx) {
+		return new NPPacket(visitMac(ctx.mac(0)), visitMac(ctx.mac(1)), visitType(ctx.type()), visitIpv4content(ctx.ipv4content()), Integer.parseInt(ctx.length().NUMBER().getText()));
+	}
+
+	public NPMac visitMac(MacContext ctx) {
+		return new NPMac(ctx.getText());
+	}
+
+	public NPType visitType(TypeContext ctx) {
+		return new NPType(ctx.getText());
+	}
+
 	@Override
-	public IR visitIpv4ttl(Ipv4ttlContext ctx) {
+	public IR visitIpv4content(Ipv4contentContext ctx) {
 		// TODO Auto-generated method stub
+		return super.visitIpv4content(ctx.);
+	}
+
+	public IR visitIpv4ttl(Ipv4ttlContext ctx) {
 		return super.visitIpv4ttl(ctx);
 	}
 
@@ -80,27 +98,9 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	@Override
-	public IR visitPacket(PacketContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitPacket(ctx);
-	}
-
-	@Override
-	public IR visitType(TypeContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitType(ctx);
-	}
-
-	@Override
 	public IR visitIpv4id(Ipv4idContext ctx) {
 		// TODO Auto-generated method stub
 		return super.visitIpv4id(ctx);
-	}
-
-	@Override
-	public IR visitMac(MacContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitMac(ctx);
 	}
 
 	@Override
@@ -146,21 +146,9 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	@Override
-	public IR visitIpv4content(Ipv4contentContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitIpv4content(ctx);
-	}
-
-	@Override
 	public IR visitIpv4fields(Ipv4fieldsContext ctx) {
 		// TODO Auto-generated method stub
 		return super.visitIpv4fields(ctx);
-	}
-
-	@Override
-	public IR visitTime(TimeContext ctx) {
-		// TODO Auto-generated method stub
-		return super.visitTime(ctx);
 	}
 
 	@Override

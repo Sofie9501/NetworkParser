@@ -2,7 +2,7 @@ package compiler.IR;
 
 import java.util.LinkedList;
 
-public class NPEntries {
+public class NPEntries extends IR{
 
 	private LinkedList<NPEntry> list;
 	
@@ -14,7 +14,7 @@ public class NPEntries {
 		this.list = list;
 	}
 
-	public LinkedList<NPEntry> getEntries() {
+	public LinkedList<NPEntry> getEntriesList() {
 		return list;
 	}
 

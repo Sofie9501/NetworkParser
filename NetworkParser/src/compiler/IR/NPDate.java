@@ -1,6 +1,6 @@
 package compiler.IR;
 
-public class NPDate {
+public class NPDate extends IR{
 	
 	int day, month, year;
 	

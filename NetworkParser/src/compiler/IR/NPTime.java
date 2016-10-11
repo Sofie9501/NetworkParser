@@ -1,6 +1,6 @@
 package compiler.IR;
 
-public class NPTime {
+public class NPTime extends IR{
 	
 	int hour, minute, seconds, miliseconds;	
 	

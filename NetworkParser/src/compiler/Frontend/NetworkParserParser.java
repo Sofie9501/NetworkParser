@@ -1,14 +1,22 @@
 package compiler.Frontend;
 
 // Generated from C:\Users\s140330\Downloads\NetworkParser.g4 by ANTLR 4.1
-import org.antlr.v4.runtime.atn.*;
-import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
-import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
+
+import org.antlr.v4.runtime.NoViableAltException;
+import org.antlr.v4.runtime.Parser;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNSimulator;
+import org.antlr.v4.runtime.atn.ParserATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.tree.ParseTreeListener;
+import org.antlr.v4.runtime.tree.ParseTreeVisitor;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class NetworkParserParser extends Parser {
@@ -550,6 +558,11 @@ public class NetworkParserParser extends Parser {
 	}
 
 	public static class Ipv4contentContext extends ParserRuleContext {
+		public Ipv4fieldsContext fields;
+		public Token from;
+		public Token to;
+		public ProtinfoContext prot;
+		public DumplineContext dump;
 		public DumplineContext dumpline(int i) {
 			return getRuleContext(DumplineContext.class,i);
 		}
@@ -592,19 +605,19 @@ public class NetworkParserParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(93); ipv4fields();
-			setState(94); match(IPV4ADR);
+			setState(93); ((Ipv4contentContext)_localctx).fields = ipv4fields();
+			setState(94); ((Ipv4contentContext)_localctx).from = match(IPV4ADR);
 			setState(95); match(21);
-			setState(96); match(IPV4ADR);
+			setState(96); ((Ipv4contentContext)_localctx).to = match(IPV4ADR);
 			setState(97); match(18);
-			setState(98); protinfo();
+			setState(98); ((Ipv4contentContext)_localctx).prot = protinfo();
 			setState(100); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(99); dumpline();
+				setState(99); ((Ipv4contentContext)_localctx).dump = dumpline();
 				}
 				}
 				setState(102); 

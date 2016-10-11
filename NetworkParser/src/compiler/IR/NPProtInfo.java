@@ -1,5 +1,5 @@
 package compiler.IR;
 
-public class NPEntryTable {
+public class NPProtInfo {
 
 }
