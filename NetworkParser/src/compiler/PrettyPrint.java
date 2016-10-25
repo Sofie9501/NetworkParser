@@ -6,7 +6,7 @@ public class PrettyPrint {
 	
 	
 	
-		public void print(IR ir){
+		public static void print(IR ir){
 		
 		}
 }
