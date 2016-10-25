@@ -2,18 +2,29 @@ package compiler.IR;
 
 public class NPIPv4Proto extends IR{
 	
-	String name;
-	int length;
-	public NPIPv4Proto(String name, int length) {
-		super();
-		this.name = name;
-		this.length = length;
+	String proto;
+	NPProtname prot;
+	int number;
+	
+	public NPIPv4Proto(String proto, NPProtname prot, int number) {
+		this.proto = proto;
+		this.prot = prot;
+		this.number = number;
 	}
-	public String getName() {
-		return name;
+	
+	public String getProto() {
+		return proto;
 	}
-	public int getLength() {
-		return length;
+	
+	public NPProtname getProt() {
+		return prot;
 	}
+	
+	public int getNumber() {
+		return number;
+	}
+	
+	
+		
 	
 }

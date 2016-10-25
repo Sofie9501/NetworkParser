@@ -1,11 +1,9 @@
 package compiler;
 
-import compiler.Exceptions.*;
-import compiler.Phases.Analysis;
-import compiler.Phases.Backend;
+import compiler.Exceptions.CompilerError;
+import compiler.Exceptions.ParseError;
+import compiler.IR.IR;
 import compiler.Phases.Frontend;
-import compiler.Phases.PrettyPrint;
-import compiler.IR.*;
 
 public class Compiler {
 
@@ -23,8 +21,8 @@ public class Compiler {
 		try {
 			Compiler c = new Compiler(args);
 			IR ir = c.generateIR();
-			c.analyseIR(ir);
-			c.generateCode(ir);
+//			c.analyseIR(ir);
+//			c.generateCode(ir);
 			
 		} 
 		catch (CompilerError e) {
@@ -43,7 +41,7 @@ public class Compiler {
 		}
 
 		filename = null;
-		debug = false;
+		debug = true;
 
 		for (int i=0;i<args.length;i++) {
 			String arg = args[i];
@@ -110,43 +108,43 @@ public class Compiler {
 		return ir;
 	}
 
-	public void analyseIR(IR ir) throws CompilerError
-	{
-		
-		if (isDebug()) {
-			PrettyPrint.print(ir);
-		}
-		
-		System.out.println("Analysing... ");
-
-		try {
-			Analysis.analyse(ir);
-		} catch (TypeCheckerException e) {
-			throw new CompilerError("TypeCheckError "+e.getMessage());
-		}
-
-		System.out.println("done.");
-		
-		if (isDebug()) {
-			PrettyPrint.print(ir);
-		}
-				
-	}
+//	public void analyseIR(IR ir) throws CompilerError
+//	{
+//		
+//		if (isDebug()) {
+//			PrettyPrint.print(ir);
+//		}
+//		
+//		System.out.println("Analysing... ");
+//
+//		try {
+//			Analysis.analyse(ir);
+//		} catch (TypeCheckerException e) {
+//			throw new CompilerError("TypeCheckError "+e.getMessage());
+//		}
+//
+//		System.out.println("done.");
+//		
+//		if (isDebug()) {
+//			PrettyPrint.print(ir);
+//		}
+//				
+//	}
 	
-	public void generateCode(IR ir) throws CompilerError
-	{
-				
-		System.out.println("Generating code... ");
-
-		try {
-			Backend.generateCode(ir);
-		} catch (CodeGenException e) {
-			throw new CompilerError("CodeGenError "+e.getMessage());
-		}
-		
-		System.out.println("done.");
-	}
-	
+//	public void generateCode(IR ir) throws CompilerError
+//	{
+//				
+//		System.out.println("Generating code... ");
+//
+//		try {
+//			Backend.generateCode(ir);
+//		} catch (CodeGenException e) {
+//			throw new CompilerError("CodeGenError "+e.getMessage());
+//		}
+//		
+//		System.out.println("done.");
+//	}
+//	
 	private void help() {
 		
 		System.err.println("\n");

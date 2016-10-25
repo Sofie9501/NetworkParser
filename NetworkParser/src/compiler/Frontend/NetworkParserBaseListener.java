@@ -1,6 +1,5 @@
-package compiler.Frontend;
-
 // Generated from C:\Users\s140330\Downloads\NetworkParser.g4 by ANTLR 4.1
+package compiler.Frontend;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -57,39 +56,13 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterDumpline(@NotNull NetworkParserParser.DumplineContext ctx) { }
+	@Override public void enterYear(@NotNull NetworkParserParser.YearContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitDumpline(@NotNull NetworkParserParser.DumplineContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterLength(@NotNull NetworkParserParser.LengthContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitLength(@NotNull NetworkParserParser.LengthContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void enterPacket(@NotNull NetworkParserParser.PacketContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitPacket(@NotNull NetworkParserParser.PacketContext ctx) { }
+	@Override public void exitYear(@NotNull NetworkParserParser.YearContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -135,6 +108,162 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
+	@Override public void enterSeconds(@NotNull NetworkParserParser.SecondsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitSeconds(@NotNull NetworkParserParser.SecondsContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterHour(@NotNull NetworkParserParser.HourContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitHour(@NotNull NetworkParserParser.HourContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterIpv4(@NotNull NetworkParserParser.Ipv4Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitIpv4(@NotNull NetworkParserParser.Ipv4Context ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterFrom(@NotNull NetworkParserParser.FromContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitFrom(@NotNull NetworkParserParser.FromContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterTag(@NotNull NetworkParserParser.TagContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitTag(@NotNull NetworkParserParser.TagContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDay(@NotNull NetworkParserParser.DayContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDay(@NotNull NetworkParserParser.DayContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterMiliseconds(@NotNull NetworkParserParser.MilisecondsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMiliseconds(@NotNull NetworkParserParser.MilisecondsContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterDumpline(@NotNull NetworkParserParser.DumplineContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitDumpline(@NotNull NetworkParserParser.DumplineContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterLength(@NotNull NetworkParserParser.LengthContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitLength(@NotNull NetworkParserParser.LengthContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterPacket(@NotNull NetworkParserParser.PacketContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitPacket(@NotNull NetworkParserParser.PacketContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
 	@Override public void enterIpv4offset(@NotNull NetworkParserParser.Ipv4offsetContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -142,6 +271,19 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * The default implementation does nothing.
 	 */
 	@Override public void exitIpv4offset(@NotNull NetworkParserParser.Ipv4offsetContext ctx) { }
+
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void enterMinute(@NotNull NetworkParserParser.MinuteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 * <p/>
+	 * The default implementation does nothing.
+	 */
+	@Override public void exitMinute(@NotNull NetworkParserParser.MinuteContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -174,19 +316,6 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterIpv4proto(@NotNull NetworkParserParser.Ipv4protoContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -200,13 +329,13 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterIpv4(@NotNull NetworkParserParser.Ipv4Context ctx) { }
+	@Override public void enterMonth(@NotNull NetworkParserParser.MonthContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitIpv4(@NotNull NetworkParserParser.Ipv4Context ctx) { }
+	@Override public void exitMonth(@NotNull NetworkParserParser.MonthContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
@@ -252,19 +381,6 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
-	@Override public void exitIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx) { }
-
-	/**
-	 * {@inheritDoc}
-	 * <p/>
-	 * The default implementation does nothing.
-	 */
 	@Override public void enterIpv4fields(@NotNull NetworkParserParser.Ipv4fieldsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -291,13 +407,13 @@ public class NetworkParserBaseListener implements NetworkParserListener {
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void enterTag(@NotNull NetworkParserParser.TagContext ctx) { }
+	@Override public void enterTo(@NotNull NetworkParserParser.ToContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 * <p/>
 	 * The default implementation does nothing.
 	 */
-	@Override public void exitTag(@NotNull NetworkParserParser.TagContext ctx) { }
+	@Override public void exitTo(@NotNull NetworkParserParser.ToContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

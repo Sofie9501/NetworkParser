@@ -6,10 +6,10 @@ public class NPIPv4Content extends IR{
 	
 	NPIPv4Fields fields;
 	String sender, receiver;
-	NPIPv4Proto protInfo;
+	NPProtInfo protInfo;
 	LinkedList<NPDump> dumps;
 	
-	public NPIPv4Content(NPIPv4Fields fields, String sender, String receiver, NPIPv4Proto npiPv4Proto,
+	public NPIPv4Content(NPIPv4Fields fields, String sender, String receiver, NPProtInfo npiPv4Proto,
 			LinkedList<NPDump> dumps) {
 		super();
 		this.fields = fields;
@@ -31,7 +31,7 @@ public class NPIPv4Content extends IR{
 		return receiver;
 	}
 
-	public NPIPv4Proto getProtInfo() {
+	public NPProtInfo getProtInfo() {
 		return protInfo;
 	}
 

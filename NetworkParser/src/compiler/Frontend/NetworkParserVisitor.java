@@ -1,6 +1,5 @@
-package compiler.Frontend;
-
 // Generated from C:\Users\s140330\Downloads\NetworkParser.g4 by ANTLR 4.1
+package compiler.Frontend;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -34,25 +33,11 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitIpv4flags(@NotNull NetworkParserParser.Ipv4flagsContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#dumpline}.
+	 * Visit a parse tree produced by {@link NetworkParserParser#year}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDumpline(@NotNull NetworkParserParser.DumplineContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#length}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLength(@NotNull NetworkParserParser.LengthContext ctx);
-
-	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#packet}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPacket(@NotNull NetworkParserParser.PacketContext ctx);
+	T visitYear(@NotNull NetworkParserParser.YearContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#type}.
@@ -76,11 +61,102 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitMac(@NotNull NetworkParserParser.MacContext ctx);
 
 	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#seconds}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSeconds(@NotNull NetworkParserParser.SecondsContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#protinfo}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#hour}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHour(@NotNull NetworkParserParser.HourContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIpv4(@NotNull NetworkParserParser.Ipv4Context ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#from}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFrom(@NotNull NetworkParserParser.FromContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4content}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#tag}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTag(@NotNull NetworkParserParser.TagContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#day}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDay(@NotNull NetworkParserParser.DayContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#miliseconds}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMiliseconds(@NotNull NetworkParserParser.MilisecondsContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#dumpline}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDumpline(@NotNull NetworkParserParser.DumplineContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#length}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLength(@NotNull NetworkParserParser.LengthContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#packet}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPacket(@NotNull NetworkParserParser.PacketContext ctx);
+
+	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4offset}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitIpv4offset(@NotNull NetworkParserParser.Ipv4offsetContext ctx);
+
+	/**
+	 * Visit a parse tree produced by {@link NetworkParserParser#minute}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinute(@NotNull NetworkParserParser.MinuteContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#entry}.
@@ -97,13 +173,6 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitEntries(@NotNull NetworkParserParser.EntriesContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#protinfo}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitProtinfo(@NotNull NetworkParserParser.ProtinfoContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4proto}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -111,11 +180,11 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitIpv4proto(@NotNull NetworkParserParser.Ipv4protoContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4}.
+	 * Visit a parse tree produced by {@link NetworkParserParser#month}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIpv4(@NotNull NetworkParserParser.Ipv4Context ctx);
+	T visitMonth(@NotNull NetworkParserParser.MonthContext ctx);
 
 	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#flagvalues}.
@@ -139,13 +208,6 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitProtname(@NotNull NetworkParserParser.ProtnameContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4content}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIpv4content(@NotNull NetworkParserParser.Ipv4contentContext ctx);
-
-	/**
 	 * Visit a parse tree produced by {@link NetworkParserParser#ipv4fields}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -160,9 +222,9 @@ public interface NetworkParserVisitor<T> extends ParseTreeVisitor<T> {
 	T visitTime(@NotNull NetworkParserParser.TimeContext ctx);
 
 	/**
-	 * Visit a parse tree produced by {@link NetworkParserParser#tag}.
+	 * Visit a parse tree produced by {@link NetworkParserParser#to}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTag(@NotNull NetworkParserParser.TagContext ctx);
+	T visitTo(@NotNull NetworkParserParser.ToContext ctx);
 }
