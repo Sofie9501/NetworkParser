@@ -91,6 +91,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 
 	@Override
 	public Integer visitEntry(NPEntry e) throws VisitorException {
+		pp.out();pp.out();pp.out();pp.out();
 		pp.print("Entry ");
 		pp.println(" {");
 		pp.in();
@@ -105,10 +106,10 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitDate(NPDate e) throws VisitorException {
 		pp.print("Date ");
-		pp.println(" {");
-		pp.println(" Day: " + String.valueOf(e.getDay()));
-		pp.println(" Month: " + String.valueOf(e.getMonth()));
-		pp.println(" Year: " + String.valueOf(e.getYear()));
+		pp.print(" { ");
+		pp.print(String.valueOf(e.getDay())+ "/");
+		pp.print(String.valueOf(e.getMonth()) + "-");
+		pp.print(String.valueOf(e.getYear()));
 		pp.println(" }");
 		return null;
 	}
@@ -116,11 +117,11 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitTime(NPTime e) throws VisitorException {
 		pp.print("Time ");
-		pp.println(" {");
-		pp.println(" Hour: " + String.valueOf(e.getHour()));
-		pp.println(" Miute: " + String.valueOf(e.getMinute()));
-		pp.println(" Seconds: " + String.valueOf(e.getSecond()));
-		pp.println(" Milliseconds: " + String.valueOf(e.getMilisecond()));
+		pp.print(" { ");
+		pp.print(String.valueOf(e.getHour()) + ":");
+		pp.print(String.valueOf(e.getMinute()) + ":");
+		pp.print(String.valueOf(e.getSecond()) + ".");
+		pp.print(String.valueOf(e.getMilisecond()));
 		pp.println(" }");
 		return null;
 	}
@@ -130,6 +131,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 		pp.print(" Packet ");
 		pp.println(" {");
 		pp.in();
+		pp.print(" MAC: ");
 		visitMac(e.getSender());
 		pp.print(" > ");
 		visitMac(e.getReceiver());
@@ -142,29 +144,30 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 
 	@Override
 	public Integer visitMac(NPMac e) throws VisitorException {
-		pp.print(" MAC: ");
-		pp.println(" {");
-		pp.println(e.getAddress());
-		pp.println(" }");
+		pp.print(" { ");
+		pp.print(e.getAddress());
+		pp.print(" }");
 		return null;
 	}
 
 	@Override
 	public Integer visitType(NPType e) throws VisitorException {
+		pp.println("");
 		pp.print(" Type: ");
-		pp.println(" {");
-		pp.println(e.getType());
+		pp.print(" { ");
+		pp.print(e.getType());
 		pp.println(" }");
 		return null;
 	}
 
 	@Override
 	public Integer visitIPv4Content(NPIPv4Content e) throws VisitorException {
+		pp.println("");
 		pp.print(" IPv4Content: ");
 		pp.println(" {");
 		pp.in();
 		visitIPv4Fields(e.getFields());
-		pp.println(e.getSender());
+		pp.print(e.getSender());
 		pp.print(" > ");
 		pp.println(e.getReceiver());
 		visitProtInfo(e.getProtInfo());
@@ -178,7 +181,8 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitIPv4Fields(NPIPv4Fields e) throws VisitorException {
 		pp.print(" IPv4 Fields: ");
-		pp.println(" {");
+		pp.print(" { ");
+		pp.println("");
 		pp.in();
 		visitIpv4tos(e.getTos());
 		visitIpv4ttl(e.getTtl());
@@ -187,6 +191,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 		visitIpv4flags(e.getFlags());
 		visitIpv4Proto(e.getProto());
 		visitLength(e.getLength());
+		pp.println("");
 		pp.println(" }");
 		return null;
 	}
@@ -194,9 +199,9 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitProtInfo(NPProtInfo e) throws VisitorException {
 		pp.print(" ProtInfo: ");
-		pp.println(" {");
-		pp.println(e.getName());
-		pp.println(String.valueOf(e.getLength()));
+		pp.print(" {");
+		pp.print(e.getName());
+		pp.print(" " + String.valueOf(e.getLength()));
 		pp.println(" }");
 		return null;
 	}
@@ -213,7 +218,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitIpv4tos(NPIpv4tos e) throws VisitorException {
 		pp.print(" Tos: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getTos());
 		pp.println(" }");
 		return null;
@@ -222,7 +227,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitIpv4ttl(NPIpv4ttl e) throws VisitorException {
 		pp.print(" Ttl: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getTtl());
 		pp.println(" }");
 		return null;
@@ -231,7 +236,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitIpv4id(NPIpv4id e) throws VisitorException {
 		pp.print(" Id: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getId());
 		pp.println(" }");
 		return null;
@@ -240,7 +245,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 	@Override
 	public Integer visitIpv4offset(NPIpv4offset e) throws VisitorException {
 		pp.print(" Offset: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getOffset());
 		pp.println(" }");
 		return null;
@@ -248,48 +253,49 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 
 	@Override
 	public Integer visitIpv4flags(NPIPv4Flags e) throws VisitorException {
-		pp.print("IPv4 Flags: ");
-		pp.println(" {");
+		pp.print(" IPv4 Flags: ");
+		pp.print(" { ");
+		pp.in();
 		visitFlagValues(e.getValues());
-		pp.println(" }");
+		pp.println(" } ");
 		return null;
 	}
 
 	@Override
 	public Integer visitFlagValues(NPFlagValues e) throws VisitorException {
 		pp.print(" Flag Values: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getFlag());
-		pp.println(" }");
+		pp.print(" }");
 		return null;
 	}
 
 	@Override
 	public Integer visitIpv4Proto(NPIPv4Proto e) throws VisitorException {
 		pp.print(" IPv4 Proto: ");
-		pp.println(" {");
+		pp.print(" { ");
 		pp.print(e.getProto());
 		visitProtname(e.getProt());
-		pp.print(String.valueOf(e.getNumber()));
+		pp.print("(" + String.valueOf(e.getNumber())+ ")");
 		pp.println(" }");
 		return null;
 	}
 
 	@Override
 	public Integer visitProtname(NPProtname e) throws VisitorException {
-		pp.print(" Pront Name: ");
-		pp.println(" {");
+		pp.print(" Prot Name: ");
+		pp.print(" { ");
 		pp.print(e.getName());
-		pp.println(" }");
+		pp.print(" } ");
 		return null;
 	}
 
 	@Override
 	public Integer visitLength(NPLength e) throws VisitorException {
-		pp.print("Length: ");
-		pp.println(" {");
+		pp.print(" Length: ");
+		pp.print(" { ");
 		pp.print(String.valueOf(e.getNumber()));
-		pp.println(" }");
+		pp.print(" }");
 		return null;
 	}
 
