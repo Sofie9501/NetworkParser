@@ -1,16 +1,15 @@
 package compiler.IR;
 
-import java.util.LinkedList;
 
 public class NPIPv4Flags extends IR{
 	
-	String values;
+	NPFlagValues values;
 
-	public NPIPv4Flags(String values) {
+	public NPIPv4Flags(NPFlagValues values) {
 		this.values = values;
 	}
 
-	public String getValues() {
+	public NPFlagValues getValues() {
 		return values;
 	}
 	

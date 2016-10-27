@@ -68,7 +68,7 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	public NPPacket visitPacket(PacketContext ctx) {
-		return new NPPacket(visitMac(ctx.mac(0)), visitMac(ctx.mac(1)), visitType(ctx.type()), visitIpv4content(ctx.ipv4content()), Integer.parseInt(ctx.length().NUMBER().getText()));
+		return new NPPacket(visitMac(ctx.mac(0)), visitMac(ctx.mac(1)), visitType(ctx.type()), visitIpv4content(ctx.ipv4content()), visitLength(ctx.length()));
 	}
 
 	public NPMac visitMac(MacContext ctx) {
@@ -91,7 +91,7 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 
 	public NPIPv4Fields visitIpv4fields(Ipv4fieldsContext ctx) {
 		return new NPIPv4Fields(visitIpv4tos(ctx.ipv4tos()), visitIpv4ttl(ctx.ipv4ttl()), visitIpv4id(ctx.ipv4id()), visitIpv4offset(ctx.ipv4offset()), 
-				visitIpv4flags(ctx.ipv4flags()), visitIpv4proto(ctx.ipv4proto()), Integer.parseInt(ctx.length().NUMBER().getText()));
+				visitIpv4flags(ctx.ipv4flags()), visitIpv4proto(ctx.ipv4proto()), visitLength(ctx.length()));
 	}
 
 	public NPProtInfo visitProtinfo(ProtinfoContext ctx) {
@@ -119,7 +119,7 @@ public class IRBuilder extends AbstractParseTreeVisitor<IR> implements NetworkPa
 	}
 
 	public NPIPv4Flags visitIpv4flags(Ipv4flagsContext ctx) {
-		return new NPIPv4Flags(ctx.flagvalues().getText());
+		return new NPIPv4Flags(visitFlagvalues(ctx.flagvalues()));
 	}
 
 	public NPFlagValues visitFlagvalues(FlagvaluesContext ctx) {

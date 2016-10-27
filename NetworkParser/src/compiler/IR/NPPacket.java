@@ -5,9 +5,9 @@ public class NPPacket extends IR{
 	NPMac sender, receiver;
 	NPType type;
 	NPIPv4Content ipContent; 
-	int length;
+	NPLength length;
 
-	public NPPacket(NPMac sender, NPMac receiver, NPType type, NPIPv4Content ipContent, int length) {
+	public NPPacket(NPMac sender, NPMac receiver, NPType type, NPIPv4Content ipContent, NPLength length) {
 		super();
 		this.sender = sender;
 		this.receiver = receiver;
@@ -32,7 +32,7 @@ public class NPPacket extends IR{
 		return ipContent;
 	}
 
-	public int getLength() {
+	public NPLength getLength() {
 		return length;
 	}
 

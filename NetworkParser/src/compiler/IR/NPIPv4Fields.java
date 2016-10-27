@@ -8,10 +8,10 @@ public class NPIPv4Fields extends IR{
 	NPIpv4ttl ttl; 
 	NPIpv4id id; 
 	NPIpv4offset offset;
-	int length;
+	NPLength length;
 	
 
-	public NPIPv4Fields(NPIpv4tos tos, NPIpv4ttl ttl, NPIpv4id id, NPIpv4offset offset, NPIPv4Flags flags, NPIPv4Proto proto, int length) {
+	public NPIPv4Fields(NPIpv4tos tos, NPIpv4ttl ttl, NPIpv4id id, NPIpv4offset offset, NPIPv4Flags flags, NPIPv4Proto proto, NPLength length) {
 		this.flags = flags;
 		this.proto = proto;
 		this.tos = tos;
@@ -47,7 +47,7 @@ public class NPIPv4Fields extends IR{
 		return offset;
 	}
 
-	public int getLength() {
+	public NPLength getLength() {
 		return length;
 	}
 
