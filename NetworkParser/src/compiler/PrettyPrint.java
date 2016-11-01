@@ -171,6 +171,7 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 		pp.print(" > ");
 		pp.println(e.getReceiver());
 		visitProtInfo(e.getProtInfo());
+		pp.println(" Dumplines: ");
 		for (NPDump c : e.getDumps()) {
 			visitDump(c);
 		}
@@ -208,9 +209,8 @@ public class PrettyPrint extends IRElementVisitor<Integer>{
 
 	@Override
 	public Integer visitDump(NPDump e) throws VisitorException {
-		pp.print(" Dumplines: ");
-		pp.println(" {");
-		pp.println(e.getData());
+		pp.print(" {");
+		pp.print(e.getData());
 		pp.println(" }");
 		return null;
 	}
