@@ -22,7 +22,7 @@ public class Compiler {
 		try {
 			Compiler c = new Compiler(args);
 			IR ir = c.generateIR();
-//			c.analyseIR(ir);
+			c.analyseIR(ir);
 //			c.generateCode(ir);
 			
 		} 
