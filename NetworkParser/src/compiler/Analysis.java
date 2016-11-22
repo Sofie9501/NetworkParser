@@ -114,7 +114,13 @@ public class Analysis extends IRElementVisitor<Integer> {
 
 	@Override
 	public Integer visitIPv4Content(NPIPv4Content e) throws VisitorException {
-		String key = e.getSender() + " -> " + e.getReceiver();
+		int index = e.getSender().lastIndexOf(".");
+		String sender = e.getSender().substring(0, index);
+		
+		index = e.getReceiver().lastIndexOf(".");
+		String receiver = e.getReceiver().substring(0, index);
+		
+		String key = sender + " -> " + receiver;
 		
 		if(map.get(key) == null) {
 			map.put(key, 1);
