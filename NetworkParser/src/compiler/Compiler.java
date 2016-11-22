@@ -2,6 +2,7 @@ package compiler;
 
 import compiler.Exceptions.CompilerError;
 import compiler.Exceptions.ParseError;
+import compiler.Exceptions.TypeCheckerException;
 import compiler.IR.IR;
 import compiler.Phases.Frontend;
 
@@ -108,28 +109,18 @@ public class Compiler {
 		return ir;
 	}
 
-//	public void analyseIR(IR ir) throws CompilerError
-//	{
-//		
-//		if (isDebug()) {
-//			PrettyPrint.print(ir);
-//		}
-//		
-//		System.out.println("Analysing... ");
-//
-//		try {
-//			Analysis.analyse(ir);
-//		} catch (TypeCheckerException e) {
-//			throw new CompilerError("TypeCheckError "+e.getMessage());
-//		}
-//
-//		System.out.println("done.");
-//		
-//		if (isDebug()) {
-//			PrettyPrint.print(ir);
-//		}
-//				
-//	}
+	public void analyseIR(IR ir) throws CompilerError
+	{		
+		System.out.println("Analysing... ");
+
+		try {
+			Analysis.print(ir);
+		} catch (Exception e) {
+			throw new CompilerError("Exception "+ e.getMessage());
+		}
+
+		System.out.println("done.");				
+	}
 	
 //	public void generateCode(IR ir) throws CompilerError
 //	{
