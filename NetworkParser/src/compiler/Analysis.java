@@ -96,15 +96,7 @@ public class Analysis extends IRElementVisitor<Integer> {
 
 	@Override
 	public Integer visitPacket(NPPacket e) throws VisitorException {
-		String key = e.getSender() + " -> " + e.getReceiver();
-		
-		if(map.get(key) == null) {
-			map.put(key, 1);
-		}
-		else {
-			map.put(key, map.get(key)+1);
-		}
-		
+		visitIPv4Content(e.getIpContent());
 		return null;
 	}
 
@@ -122,7 +114,15 @@ public class Analysis extends IRElementVisitor<Integer> {
 
 	@Override
 	public Integer visitIPv4Content(NPIPv4Content e) throws VisitorException {
-		// TODO Auto-generated method stub
+		String key = e.getSender() + " -> " + e.getReceiver();
+		
+		if(map.get(key) == null) {
+			map.put(key, 1);
+		}
+		else {
+			map.put(key, map.get(key)+1);
+		}
+		
 		return null;
 	}
 
