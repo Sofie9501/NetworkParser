@@ -23,6 +23,7 @@ public class Compiler {
 			Compiler c = new Compiler(args);
 			IR ir = c.generateIR();
 			c.analyseIR(ir);
+			
 //			c.generateCode(ir);
 			
 		} 
@@ -114,7 +115,10 @@ public class Compiler {
 		System.out.println("Analysing... ");
 
 		try {
-			Analysis.print(ir);
+			IPCounter.print(ir);
+			IntrusionAnalyser.analyse(ir);
+			IntrusionAnalyserV2.analyse(ir);
+			
 		} catch (Exception e) {
 			throw new CompilerError("Exception "+ e.getMessage());
 		}

@@ -22,7 +22,7 @@ public class NPIPv4Content extends IR{
 	public NPIPv4Fields getFields() {
 		return fields;
 	}
-
+	
 	public String getSender() {
 		return sender;
 	}

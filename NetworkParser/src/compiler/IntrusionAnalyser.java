@@ -31,7 +31,7 @@ import compiler.IR.NPTime;
 import compiler.IR.NPType;
 import compiler.IR.support.IRElementVisitor;
 
-public class Analysis extends IRElementVisitor<Integer> {
+public class IntrusionAnalyser extends IRElementVisitor<Integer> {
 	
 	private static class Analyser {
 		private PrintStream ps;
@@ -50,16 +50,12 @@ public class Analysis extends IRElementVisitor<Integer> {
 	}
 	
 	public static Analyser analyser = new Analyser();
-	public static Map<String, Integer> map = new HashMap<>();
+	public static Map<String, String> duplicateIP = new HashMap<>();
+	public static Map<String, String> duplicateMAC = new HashMap<>();
+	private String ip;
+	private String mac;
 	
-	public static void print() {
-		Iterator it = map.entrySet().iterator();
-		
-		while(it.hasNext()) {
-			Map.Entry pair = (Map.Entry) it.next();
-			analyser.printLine(pair.getKey() + ": " + pair.getValue());
-		}
-	}
+	
 	
 	@Override
 	public Integer visitEntries(NPEntries e) throws VisitorException {
@@ -72,7 +68,27 @@ public class Analysis extends IRElementVisitor<Integer> {
 
 	@Override
 	public Integer visitEntry(NPEntry e) throws VisitorException {
+		// Check ip and mac adress
 		visitPacket(e.getPacket());
+		
+		// put them into hashmaps, if the pairs do not exist, otherwise throw exception, because we have
+		// detected some kind of intrusion attempt
+		
+		// test ip change
+		String ipTest = IntrusionAnalyser.duplicateIP.get(mac);
+		if(ipTest == null){
+			IntrusionAnalyser.duplicateIP.put(mac, ip);
+		}else if(!ipTest.equals(ip)){
+			throw new VisitorException("MAC address: " + mac + " has changed it's ip address");		
+		}
+		
+		// test mac change
+		String macTest = IntrusionAnalyser.duplicateMAC.get(ip);
+		if(macTest == null){
+			IntrusionAnalyser.duplicateMAC.put(ip, mac);
+		}else if(!macTest.equals(mac)){
+			throw new VisitorException("IP address: " + ip + " has a new mac address");	
+		}
 		return null;
 	}
 
@@ -97,12 +113,13 @@ public class Analysis extends IRElementVisitor<Integer> {
 	@Override
 	public Integer visitPacket(NPPacket e) throws VisitorException {
 		visitIPv4Content(e.getIpContent());
+		visitMac(e.getSender());
 		return null;
 	}
 
 	@Override
 	public Integer visitMac(NPMac e) throws VisitorException {
-		// TODO Auto-generated method stub
+		mac = e.getAddress().toString();
 		return null;
 	}
 
@@ -114,21 +131,8 @@ public class Analysis extends IRElementVisitor<Integer> {
 
 	@Override
 	public Integer visitIPv4Content(NPIPv4Content e) throws VisitorException {
-		int index = e.getSender().lastIndexOf(".");
-		String sender = e.getSender().substring(0, index);
-		
-		index = e.getReceiver().lastIndexOf(".");
-		String receiver = e.getReceiver().substring(0, index);
-		
-		String key = sender + " -> " + receiver;
-		
-		if(map.get(key) == null) {
-			map.put(key, 1);
-		}
-		else {
-			map.put(key, map.get(key)+1);
-		}
-		
+		ip = e.getSender().toString();
+		ip = ip.substring(0, ip.lastIndexOf("."));
 		return null;
 	}
 
@@ -210,10 +214,11 @@ public class Analysis extends IRElementVisitor<Integer> {
 		return null;
 	}
 	
-	public static void print(IR ir) {
+	public static void analyse(IR ir) {
 		try {
-			new Analysis().visitEntries(ir.getEntries());
-			print();
+			System.out.println("Starting intrusion detection!!!!");
+			new IntrusionAnalyser().visitEntries(ir.getEntries());
+
 			
 		} catch (VisitorException e) {
 			e.printStackTrace();

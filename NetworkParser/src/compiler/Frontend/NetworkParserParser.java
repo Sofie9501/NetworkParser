@@ -1,4 +1,4 @@
-// Generated from C:\Users\s140330\Downloads\NetworkParser.g4 by ANTLR 4.1
+// Generated from C:\Users\casdan\Downloads\NetworkParser.g4 by ANTLR 4.1
 package compiler.Frontend;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -972,9 +972,9 @@ public class NetworkParserParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(129); ipv4fields();
-			setState(130); to();
+			setState(130); from();
 			setState(131); match(20);
-			setState(132); from();
+			setState(132); to();
 			setState(133); match(17);
 			setState(134); protinfo();
 			setState(136); 
@@ -1578,7 +1578,7 @@ public class NetworkParserParser extends Parser {
 		"st\7%\2\2t\35\3\2\2\2uv\7%\2\2v\37\3\2\2\2wx\5\"\22\2x!\3\2\2\2yz\7\13"+
 		"\2\2z{\5$\23\2{#\3\2\2\2|}\7\16\2\2}~\7#\2\2~\177\7\33\2\2\177%\3\2\2"+
 		"\2\u0080\u0081\7\4\2\2\u0081\u0082\7\36\2\2\u0082\'\3\2\2\2\u0083\u0084"+
-		"\5*\26\2\u0084\u0085\5\34\17\2\u0085\u0086\7\26\2\2\u0086\u0087\5\36\20"+
+		"\5*\26\2\u0084\u0085\5\36\20\2\u0085\u0086\7\26\2\2\u0086\u0087\5\34\17"+
 		"\2\u0087\u0088\7\23\2\2\u0088\u008a\5<\37\2\u0089\u008b\5> \2\u008a\u0089"+
 		"\3\2\2\2\u008b\u008c\3\2\2\2\u008c\u008a\3\2\2\2\u008c\u008d\3\2\2\2\u008d"+
 		")\3\2\2\2\u008e\u008f\7\16\2\2\u008f\u0090\5,\27\2\u0090\u0091\7\17\2"+
